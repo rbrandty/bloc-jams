@@ -69,7 +69,11 @@ body {
     max-width: 64rem;
 }
 
-/* Medium and small screens (640px) */
+ .container.narrow {
+     max-width: 56rem;
+ }
+
+/* Medium screens (640px) */
 @media (min-width: 640px) {
     html { font-size: 112%; }
     .column {
