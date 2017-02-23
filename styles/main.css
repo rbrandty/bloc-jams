@@ -11,10 +11,9 @@ html {
 
 body {
     font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
-    color: white;             /* sets the text color to white */
+    color: white;             /* sets text color to white */
     min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
 }
-
 
 .navbar {
     position: relative;
@@ -27,16 +26,16 @@ body {
     position: relative; /* positioning will be explained in a resource */
     left: 2rem;
     cursor: pointer;  /* produces the finger-pointer icon when you hover over the logo */
- }
- 
- .navbar .links-container {
-     display: table;
-     position: absolute;
-     top: 0;
-     right: 0;
-     height: 100px;
-     color: white;
-     text-decoration: none;
+}
+
+.navbar .links-container {
+    display: table;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100px;
+    color: white;
+    text-decoration: none;
 }
 
 .links-container .navbar-link {
@@ -54,14 +53,14 @@ body {
     cursor: pointer;
 }
 
- .links-container .navbar-link:hover {
-     color: rgb(233,50,117);
- }
+.links-container .navbar-link:hover {
+    color: rgb(233,50,117);
+}
 
- .links-container .navbar-link:active {
-     color: rgb(233,50,117);
-     background-color: white;
- }
+.links-container .navbar-link:active {
+    color: rgb(233,50,117);
+    background-color: white;
+}
 
 
 .container {
@@ -69,9 +68,9 @@ body {
     max-width: 64rem;
 }
 
- .container.narrow {
-     max-width: 56rem;
- }
+.container.narrow {
+    max-width: 56rem;
+}
 
 /* Medium screens (640px) */
 @media (min-width: 640px) {
@@ -82,14 +81,14 @@ body {
         padding-right: 1rem;
     }
     /* Style information will go here */
-    
-     .column.full { width: 100%; }
-     .column.two-thirds { width: 66.7%; }
-     .column.half { width: 50%; }
-     .column.third { width: 33.3%; }
-     .column.fourth { width: 25%; }
-     .column.flow-opposite { float: right; }  
- }
+
+    .column.full { width: 100%; }
+    .column.two-thirds { width: 66.7%; }
+    .column.half { width: 50%; }
+    .column.third { width: 33.3%; }
+    .column.fourth { width: 25%; }
+    .column.flow-opposite { float: right; }  
+}
 }
 
 /* Large screens (1024px) */
@@ -100,10 +99,10 @@ body {
 
 .clearfix::before,
 .clearfix::after {
-   content: " ";
-   display: table;
+    content: " ";
+    display: table;
 }
 
 .clearfix::after {
-   clear: both;
+    clear: both;
 }
