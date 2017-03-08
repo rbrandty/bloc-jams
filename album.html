@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="styles/normalize.css">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet" type="text/css" href="styles/album.css">
+        <link rel="stylesheet" type="text/css" href="styles/player_bar.css">
     </head>
     <body class="album">
         <nav class="navbar"> <!-- nav bar -->
@@ -35,6 +36,22 @@
 
             </table>
         </main>
+        
+        <section class="player-bar">
+             <div class="container">
+                 <div class="control-group main-controls">
+                 </div>
+                 <div class="control-group currently-playing">
+                 </div>
+                 <div class="control-group volume">
+                    <span class="ion-volume-high icon"></span>
+                     <div class="seek-bar">
+                         <div class="fill"></div>
+                         <div class="thumb"></div>
+                     </div>
+                 </div>
+             </div>         
+        </section>
         <script src="scripts/album.js"></script>
     </body>
 </html>
