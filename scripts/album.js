@@ -111,7 +111,6 @@ var clickHandler = function(targetElement){
     var songItem = getSongItem(targetElement);
 
     if (currentlyPlayingSong === null) {
-        console.log('Clicked!');
         songItem.innerHTML = pauseButtonTemplate;
         currentlyPlayingSong = songItem.getAttribute('data-song-number');
 
@@ -152,21 +151,22 @@ window.onload = function() {
         }
     });
 
-    for (var i = 0; i < songRows.length; i++) {
-        songRows[i].addEventListener('mouseleave', function(event) {
-            var songItem = getSongItem(event.target);
-            var songItemNumber = songItem.getAttribute('data-song-number');
+     for (var i = 0; i < songRows.length; i++) {
+         songRows[i].addEventListener('mouseleave', function(event) {
+             // #1
+             var songItem = getSongItem(event.target);
+             var songItemNumber = songItem.getAttribute('data-song-number');
+             // #2
+             if (songItemNumber !== currentlyPlayingSong) {
+                 songItem.innerHTML = songItemNumber;
+             }
+         });
 
-            // #2
-            if (songItemNumber !== currentlyPlayingSong) {
-                songItem.innerHTML = songItemNumber;
-            }
-        });
-
-        songRows[i].addEventListener('click', function(event) {
-            clickHandler(event.target);
-        });
-    }
+         songRows[i].addEventListener('click', function(event) {
+              clickHandler(event.target);
+         });
+     }       
+};
     
     var albums = [albumPicasso, albumMarconi, albumHotFuss];
     var index = 1;
@@ -177,7 +177,3 @@ window.onload = function() {
             index = 0;
         }
     });
-}
-
-
-
