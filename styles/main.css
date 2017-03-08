@@ -62,7 +62,6 @@ body {
     background-color: white;
 }
 
-
 .container {
     margin: 0 auto;
     max-width: 64rem;
@@ -88,7 +87,6 @@ body {
     .column.third { width: 33.3%; }
     .column.fourth { width: 25%; }
     .column.flow-opposite { float: right; }  
-}
 }
 
 /* Large screens (1024px) */
