@@ -141,7 +141,6 @@ window.onload = function() {
         }
     });
 
-
     for (var i = 0; i < songRows.length; i++) {
         songRows[i].addEventListener('mouseleave', function(event) {
                     var songItem = getSongItem(event.target);
@@ -170,7 +169,7 @@ window.onload = function() {
                 index = 0;
             }
         });
-    };
+};
 
 var findParentByClassName = function(element, targetClass) {
         if (element) {
@@ -180,7 +179,7 @@ var findParentByClassName = function(element, targetClass) {
             }
             return currentParent;
         }
-    };
+};
 
 var getSongItem = function(element) {
     switch (element.className) {
@@ -201,8 +200,7 @@ var getSongItem = function(element) {
 };
     
      var clickHandler = function(targetElement) {
-
-      var songItem = getSongItem(targetElement);  
+         var songItem = getSongItem(targetElement);  
          
          if (currentlyPlayingSong === null) {
          songItem.innerHTML = pauseButtonTemplate;
@@ -217,5 +215,5 @@ var getSongItem = function(element) {
          currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number');
          songItem.innerHTML = pauseButtonTemplate;
          currentlyPlayingSong = songItem.getAttribute('data-song-number');
-     }
+        }
      };
