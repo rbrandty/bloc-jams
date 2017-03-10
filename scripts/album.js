@@ -182,64 +182,14 @@ window.onload = function() {
         });
     }
 
-    window.onload = function() {
-        setCurrentAlbum(albumPicasso);
-
-        var albums = [albumPicasso, albumMarconi, albumHotFuss];
-        var index = 1;
-        albumImage.addEventListener("click", function(event) {
-            setCurrentAlbum(albums[index]);
-            index++;
-            if (index == albums.length) {
-                index = 0;
-            }
-        });
-    };
-
-    var findParentByClassName = function(element, targetClass) {
-        if (element) {
-            var currentParent = element.parentElement;
-            while (currentParent.className !== targetClass && currentParent.className !== null) {
-                currentParent = currentParent.parentElement;
-            }
-            return currentParent;
+    var albums = [albumPicasso, albumMarconi, albumHotFuss];
+    var index = 1;
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index++;
+        if (index == albums.length) {
+            index = 0;
         }
-    };
-    >>>>>>> player volume checkpoint
-
-    songRows[i].addEventListener('click', function(event) {
-        clickHandler(event.target);
     });
-}       
 };
 
-<<<<<<< HEAD
-var albums = [albumPicasso, albumMarconi, albumHotFuss];
-var index = 1;
-albumImage.addEventListener("click", function(event) {
-    setCurrentAlbum(albums[index]);
-    index++;
-    if (index == albums.length) {
-        index = 0;
-    }
-});
-=======
-    var clickHandler = function(targetElement) {
-        var songItem = getSongItem(targetElement);  
-
-        if (currentlyPlayingSong === null) {
-            songItem.innerHTML = pauseButtonTemplate;
-            currentlyPlayingSong = songItem.getAttribute('data-song-number');
-
-        } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
-            songItem.innerHTML = playButtonTemplate;
-            currentlyPlayingSong = null;
-
-        } else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
-            var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
-            currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number');
-            songItem.innerHTML = pauseButtonTemplate;
-            currentlyPlayingSong = songItem.getAttribute('data-song-number');
-        }
-    };
->>>>>>> player volume checkpoint
