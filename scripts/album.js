@@ -45,7 +45,7 @@ var albumHotFuss = {
     ]
 };
 
-var createSongRow = function(songNumber, songName, songLength) {
+var createSongRow = function (songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">' +
         '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>' +
@@ -62,7 +62,7 @@ var albumReleaseInfo = document.getElementsByClassName('album-view-release-info'
 var albumImage = document.getElementsByClassName('album-cover-art')[0];
 var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
-var setCurrentAlbum = function(album) {
+var setCurrentAlbum = function (album) {
     // assign values to each part of the album (text, images)
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
@@ -161,6 +161,7 @@ window.onload = function() {
         }
     });
 
+<<<<<<< HEAD
     for (var i = 0; i < songRows.length; i++) {
         songRows[i].addEventListener('mouseleave', function(event) {
             // #1
@@ -181,6 +182,26 @@ window.onload = function() {
         });
     }
 
+=======
+     for (var i = 0; i < songRows.length; i++) {
+         songRows[i].addEventListener('mouseleave', function(event) {
+             // #1
+             var songItem = getSongItem(event.target);
+
+             var songItemNumber = songItem.getAttribute('data-song-number');
+             // #2
+             if (songItemNumber !== currentlyPlayingSong) {
+                 songItem.innerHTML = songItemNumber;
+             }
+         });
+
+         songRows[i].addEventListener('click', function(event) {
+              clickHandler(event.target);
+         });
+     }       
+};
+    
+>>>>>>> jquery
     var albums = [albumPicasso, albumMarconi, albumHotFuss];
     var index = 1;
     albumImage.addEventListener("click", function(event) {
@@ -190,6 +211,7 @@ window.onload = function() {
             index = 0;
         }
     });
+<<<<<<< HEAD
 };
 
 window.onload = function() {
@@ -252,3 +274,5 @@ var getSongItem = function(element) {
          currentlyPlayingSong = songItem.getAttribute('data-song-number');
         }
      };
+=======
+>>>>>>> jquery
