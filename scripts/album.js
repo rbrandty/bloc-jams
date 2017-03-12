@@ -29,6 +29,7 @@ var albumMarconi = {
         { title: 'Wrong phone number', duration: '2:15'}
     ]
 };
+
 //assignment third example album
 var albumHotFuss = {
     title: 'Hot Fuss',
@@ -53,39 +54,39 @@ var createSongRow = function (songNumber, songName, songLength) {
         '  <td class="song-item-duration">' + songLength + '</td>' +
         '</tr>';
 
-        var $row = $(template);
-    
-       var clickHandler = function() {
-         // clickHandler logic
-     };
- 
-    
-     var onHover = function(event) {
-         // Placeholder for function logic
-     };
-     var offHover = function(event) {
-         // Placeholder for function logic
-     };
- 
-     // #1
+    var $row = $(template);
+
+    var clickHandler = function() {
+        // clickHandler logic
+    };
+
+    var onHover = function(event) {
+        // Placeholder for function logic
+    };
+
+    var offHover = function(event) {
+        // Placeholder for function logic
+    };
+
+    // #1
     $row.find('.song-item-number').click(clickHandler);
-     // #2
-     $row.hover(onHover, offHover);
-     // #3
-     return $row;
+    // #2
+    $row.hover(onHover, offHover);
+    // #3
+    return $row;
 };
+
 var setCurrentAlbum = function (album) {
-     var $albumTitle = $('.album-view-title');
-     var $albumArtist = $('.album-view-artist');
-     var $albumReleaseInfo = $('.album-view-release-info');
-     var $albumImage = $('.album-cover-art');
-     var $albumSongList = $('.album-view-song-list');
+    var $albumTitle = $('.album-view-title');
+    var $albumArtist = $('.album-view-artist');
+    var $albumReleaseInfo = $('.album-view-release-info');
+    var $albumImage = $('.album-cover-art');
+    var $albumSongList = $('.album-view-song-list');
 
-
-     $albumTitle.text(album.title);
-     $albumArtist.text(album.artist);
-     $albumReleaseInfo.text(album.year + ' ' + album.label);
-     $albumImage.attr('src', album.albumArtUrl);
+    $albumTitle.text(album.title);
+    $albumArtist.text(album.artist);
+    $albumReleaseInfo.text(album.year + ' ' + album.label);
+    $albumImage.attr('src', album.albumArtUrl);
 
     // clear contents of album song list container
     $albumSongList.empty();
@@ -93,7 +94,7 @@ var setCurrentAlbum = function (album) {
     // build list of songs from album JavaScript object
     for (var i = 0; i < album.songs.length; i++) {
         var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-         $albumSongList.append($newRow);
+        $albumSongList.append($newRow);
     }
 }
 
@@ -107,7 +108,20 @@ var currentlyPlayingSong = null;
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
 });
-                  
+
+var albums = [albumPicasso, albumMarconi, albumHotFuss];
+var index = 1;
+albumImage.addEventListener("click", function(event) {
+    setCurrentAlbum(albums[index]);
+    index++;
+    if (index == albums.length) {
+        index = 0;
+    }
+});
+
+window.onload = function() {
+    setCurrentAlbum(albumPicasso);
+
     var albums = [albumPicasso, albumMarconi, albumHotFuss];
     var index = 1;
     albumImage.addEventListener("click", function(event) {
@@ -117,17 +131,4 @@ $(document).ready(function() {
             index = 0;
         }
     });
-
-window.onload = function() {
-        setCurrentAlbum(albumPicasso);
-
-        var albums = [albumPicasso, albumMarconi, albumHotFuss];
-        var index = 1;
-        albumImage.addEventListener("click", function(event) {
-            setCurrentAlbum(albums[index]);
-            index++;
-            if (index == albums.length) {
-                index = 0;
-            }
-        });
 };
