@@ -1,50 +1,3 @@
-// Example Album
-var albumPicasso = {
-    title: 'The Colors',
-    artist: 'Pablo Picasso',
-    label: 'Cubism',
-    year: '1881',
-    albumArtUrl: 'assets/images/album_covers/01.png',
-    songs: [
-        { title: 'Blue', duration: '4:26' },
-        { title: 'Green', duration: '3:14' },
-        { title: 'Red', duration: '5:01' },
-        { title: 'Pink', duration: '3:21'},
-        { title: 'Magenta', duration: '2:15'}
-    ]
-};
-
-// Another Example Album
-var albumMarconi = {
-    title: 'The Telephone',
-    artist: 'Guglielmo Marconi',
-    label: 'EM',
-    year: '1909',
-    albumArtUrl: 'assets/images/album_covers/20.png',
-    songs: [
-        { title: 'Hello, Operator?', duration: '1:01' },
-        { title: 'Ring, ring, ring', duration: '5:01' },
-        { title: 'Fits in your pocket', duration: '3:21'},
-        { title: 'Can you hear me now?', duration: '3:14' },
-        { title: 'Wrong phone number', duration: '2:15'}
-    ]
-};
-//assignment third example album
-var albumHotFuss = {
-    title: 'Hot Fuss',
-    artist: 'The Killers',
-    label: 'NA',
-    year: '2003',
-    albumArtUrl: 'assets/images/album_covers/21.png',
-    songs: [
-        { title: 'Hello Song?', duration: '4:01' },
-        { title: 'Song, ring, ring', duration: '4:41' },
-        { title: 'This song sits in your pocket', duration: '4:44'},
-        { title: 'Can you see me now?', duration: '4:14' },
-        { title: 'Correct phone number', duration: '4:15'}
-    ]
-};
-
 var createSongRow = function (songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">' +
@@ -56,6 +9,7 @@ var createSongRow = function (songNumber, songName, songLength) {
         return $(template);
 };
 var setCurrentAlbum = function (album) {
+     currentAlbum = album;
      var $albumTitle = $('.album-view-title');
      var $albumArtist = $('.album-view-artist');
      var $albumReleaseInfo = $('.album-view-release-info');
@@ -77,6 +31,15 @@ var setCurrentAlbum = function (album) {
          $albumSongList.append($newRow);
     }
 }
+
+var updatePlayerBarSong = function() {
+
+    $('.currently-playing .song-name').text(currentSongFromAlbum.title);
+    $('.currently-playing .artist-name').text(currentAlbum.artist);
+    $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
+  
+    $('.main-controls .play-pause').html(playerBarPauseButton);
+};
 
 var findParentByClassName = function(element, targetClass) {
     if (element) {
@@ -142,9 +105,14 @@ var songRows = document.getElementsByClassName('album-view-song-item');
 // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
+ var playerBarPlayButton = '<span class="ion-play"></span>';
+ var playerBarPauseButton = '<span class="ion-pause"></span>';
 
 // Store state of playing songs
-var currentlyPlayingSong = null;
+
+ var currentAlbum = null;
+ var currentlyPlayingSongNumber = null;
+ var currentSongFromAlbum = null;
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
@@ -178,7 +146,8 @@ window.onload = function() {
             clickHandler(event.target);
         });
     }
-     }       
+}
+
     var albums = [albumPicasso, albumMarconi, albumHotFuss];
     var index = 1;
     albumImage.addEventListener("click", function(event) {
