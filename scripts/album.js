@@ -111,7 +111,11 @@ $(document).ready(function() {
 
 var albums = [albumPicasso, albumMarconi, albumHotFuss];
 var index = 1;
-albumImage.addEventListener("click", function(event) {
+
+// Weird that has to specify first element
+var $albumImage = $('.album-cover-art')[0];
+
+$albumImage.addEventListener("click", function(event) {
     setCurrentAlbum(albums[index]);
     index++;
     if (index == albums.length) {
@@ -124,7 +128,7 @@ window.onload = function() {
 
     var albums = [albumPicasso, albumMarconi, albumHotFuss];
     var index = 1;
-    albumImage.addEventListener("click", function(event) {
+    $albumImage.addEventListener("click", function(event) {
         setCurrentAlbum(albums[index]);
         index++;
         if (index == albums.length) {
