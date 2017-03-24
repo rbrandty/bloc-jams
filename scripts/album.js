@@ -206,10 +206,24 @@ var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
+//assignment20
+var $playPause = $('.main-controls .play-pause');
+
 $(document).ready(function() {
   setCurrentAlbum(albumPicasso);
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
+    
+//assignment20    
+  $playPause.click(togglePlayFromPlayerBar);
+    
+var togglePlayFromPlayerBar = function() {
+
+    if
+
+    else
+
+}
 
   var albums = [albumPicasso, albumMarconi, albumHotFuss];
   var index = 1;
