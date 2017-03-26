@@ -299,6 +299,8 @@ var currentSongFromAlbum = null;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
+//commenting out my assignment 20 mess up
+/*
 //assignment20
 var $playPause = $('.main-controls .play-pause');
 
@@ -318,10 +320,13 @@ $(document).ready(function() {
             else
 
             }
+*/
 
-            var albums = [albumPicasso, albumMarconi, albumHotFuss];
+        var albums = [albumPicasso, albumMarconi, albumHotFuss];
         var index = 1;
-        // Kind of cheating, you might see it done differently.  If so change it! :D
+
+        // Kind of cheating, you might see it done differently. -Jesse
+
         $('.album-cover-art')[0].addEventListener("click", function(event) {
             setCurrentAlbum(albums[index]);
             index++;
@@ -329,4 +334,3 @@ $(document).ready(function() {
                 index = 0;
             }
         });
-    });
