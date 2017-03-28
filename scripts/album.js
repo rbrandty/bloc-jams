@@ -4,8 +4,7 @@ var createSongRow = function(songNumber, songName, songLength) {
   + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
   + '  <td class="song-item-title">' + songName + '</td>'
   + '  <td class="song-item-duration">' + songLength + '</td>'
-  + '</tr>'
-  ;
+  + '</tr>';
 
   var $row = $(template);
 
@@ -30,12 +29,14 @@ var clickHandler = function() {
     $volumeThumb.css({left: currentVolume + '%'});
     $(this).html(pauseButtonTemplate);
     updatePlayerBarSong();
+      
   } else if (currentlyPlayingSongNumber === songNumber) {
     if (currentSoundFile.isPaused()) {
       $(this).html(pauseButtonTemplate);
       $('.main-controls .play-pause').html(playerBarPauseButton);
       currentSoundFile.play();
       updateSeekBarWhileSongPlays();
+    
     } else {
       currentSoundFile.pause();
       $(this).html(playButtonTemplate);
@@ -282,6 +283,28 @@ var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
+//assignment20
+var $playPause = $('.main-controls .play-pause');
+
+$(document).ready(function() {
+  setCurrentAlbum(albumPicasso);
+  $previousButton.click(previousSong);
+  $nextButton.click(nextSong);
+    
+//assignment20    
+  $playPause.click(togglePlayFromPlayerBar);
+    
+    var togglePlayFromPlayerBar = function() {
+
+        if (currentSoundFile.isPaused()) {
+        set$playPause = pauseButtonTemplate;
+        }
+        
+        else {set$playPause = playButtonTemplate;
+        }
+    }
+});
+                  
 $(document).ready(function(){
   setCurrentAlbum(albumPicasso);
   $previousButton.click(previousSong);
