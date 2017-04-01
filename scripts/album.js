@@ -297,10 +297,15 @@ $(document).ready(function() {
     var togglePlayFromPlayerBar = function() {
 
         if (currentSoundFile.isPaused()) {
-        set$playPause = pauseButtonTemplate;
+        currentSoundFile.play();
+        updateSeekBarWhileSongPlays();
+        $(this).html(pauseButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPauseButton);
         }
         
-        else {set$playPause = playButtonTemplate;
+        else {currentSoundFile.pause();
+        $(this).html(playButtonTemplate);
+        $('.main-controls .play-pause').html(playerBarPlayButton);
         }
     }
 });
