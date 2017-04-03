@@ -1,0 +1,26 @@
+{
+  "name": "bloc-jams",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbrandty/bloc-jams.git"
+  },
+  "keywords": [
+    "json"
+  ],
+  "author": "rach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rbrandty/bloc-jams/issues"
+  },
+  "homepage": "https://github.com/rbrandty/bloc-jams#readme"
+}
